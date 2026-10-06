@@ -1,0 +1,62 @@
+[
+  {
+    "alert_time_utc": "2026-10-05T08:08:00Z",
+    "rule": "success_after_failures",
+    "severity": "critical",
+    "mitre_attack": "T1110 - Brute Force / T1078 - Valid Accounts",
+    "title": "Successful login after repeated failures: arun",
+    "evidence": {
+      "user": "arun",
+      "source_ip": "185.220.101.4",
+      "prior_failures": 4,
+      "country": "Germany"
+    },
+    "recommended_action": "Reset the account password, revoke active sessions, and confirm the login with the account owner."
+  },
+  {
+    "alert_time_utc": "2026-10-05T08:05:00Z",
+    "rule": "brute_force",
+    "severity": "high",
+    "mitre_attack": "T1110 - Brute Force",
+    "title": "Possible brute-force activity from 185.220.101.4",
+    "evidence": {
+      "source_ip": "185.220.101.4",
+      "failed_attempts": 5,
+      "window_minutes": 10,
+      "targeted_users": [
+        "arun",
+        "meera"
+      ]
+    },
+    "recommended_action": "Block or rate-limit the source IP, review targeted accounts, and validate whether failures were expected."
+  },
+  {
+    "alert_time_utc": "2026-10-05T09:35:00Z",
+    "rule": "impossible_travel",
+    "severity": "high",
+    "mitre_attack": "T1078 - Valid Accounts",
+    "title": "Potential impossible travel for priya",
+    "evidence": {
+      "user": "priya",
+      "previous_country": "India",
+      "new_country": "United States",
+      "travel_window_minutes": 35,
+      "source_ip": "198.51.100.24"
+    },
+    "recommended_action": "Verify the sign-in with the user; if unrecognized, revoke sessions and reset credentials."
+  },
+  {
+    "alert_time_utc": "2026-10-05T10:10:00Z",
+    "rule": "privileged_login",
+    "severity": "medium",
+    "mitre_attack": "T1078 - Valid Accounts",
+    "title": "Privileged account login: secadmin",
+    "evidence": {
+      "user": "secadmin",
+      "source_ip": "203.0.113.42",
+      "country": "Singapore",
+      "role": "admin"
+    },
+    "recommended_action": "Confirm the activity is authorized and review privileged actions from this session."
+  }
+]
